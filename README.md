@@ -3,79 +3,74 @@
 </p>
 
 # Briskli ✨
-### The Premium Agentic Prompt Vault for Modern Engineers
+### A Simple Prompt Manager for Productivity
 
-[![Version](https://img.shields.io/badge/version-0.1.0-cyan.svg)](https://github.com/Pastarafian/Briskli)
+[![Version](https://img.shields.io/badge/version-0.1.1-cyan.svg)](https://github.com/Pastarafian/Briskli)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-VS%20Code-brightgreen.svg)](https://marketplace.visualstudio.com/items?itemName=Pastarafian.briskli)
 
-**Briskli** is a state-of-the-art prompt management system built directly into VS Code. It bridges the gap between your best prompts and your AI assistants, offering a "one-click" workflow that feels like magic.
+**Briskli** is a straightforward prompt management extension for VS Code designed to help you organize your AI prompts and work faster. It keeps your favorite prompts handy so you can reuse them without constant copying and pasting.
 
 ---
 
 ## 🚀 Why Briskli?
 
-In the age of Agentic Coding, your speed is limited by your ability to communicate with AI. Briskli eliminates the friction of copying, pasting, and modifying boilerplate prompts.
+Communicating with AI assistants can be repetitive. Briskli helps you save time by storing your frequently used prompts in an easy-to-access sidebar.
 
-- **Stop Searching**: Keep your best "debug", "refactor", and "architecture" prompts in one smart sidebar.
-- **Stop Repeating**: Use variable injection to auto-fill language, framework, and context.
-- **Go Turbo**: Send prompts directly to **Cursor**, **Copilot**, or **Cody** without leaving your editor.
+- **Organized**: Keep your prompts sorted into simple categories like "Bugs", "building", and "Docs".
+- **Reusable**: Write your prompts once and use them with different codebase contexts.
+- **Fast**: Quickly insert prompts into your AI chat or editor.
 
 ---
 
 ## 🔥 Key Features
 
-### ⚡ Turbo Mode (The "Alpha" Workflow)
-Don't just copy prompts—inject them. 
-*   **Ctrl/Cmd + Click** any card to trigger Turbo Mode.
-*   Supports **Cursor**, **GitHub Copilot**, **Sourcegraph Cody**, and direct **Editor** insertion.
-*   **Smart Injection** detection ensures your prompt lands in the right active chat.
+### ⚡ Quick Insertion
+Easily send your stored prompts to your active AI window or editor.
+*   **Ctrl/Cmd + Click** a prompt to use it immediately.
+*   Works with **Cursor**, **GitHub Copilot**, and other AI tools.
+*   Automatically connects your prompt with the active file context.
 
-### ✨ Persona-Driven AI Generator
-Need a specific prompt? Use the built-in AI assistant to build one for you.
-*   **Role Setup**: Choose from Senior Architect, DevOps Specialist, Security Guru, and more.
-*   **Intent Targeting**: Tailor logic for testing, documentation, or security audits.
-*   **Difficulty Tiers**: Switch between Beginner and Master modes.
+### ✨ Prompt Generator
+Need a new prompt? Briskli includes a helper to generate useful prompts for specific tasks.
+*   Define the role and intent (e.g., "Senior Dev" for "Testing").
+*   Generates a structured prompt you can save to your vault.
 
-### 🔮 Predictive Suggestion Engine
-The **PREDICTED** zone at the top of your sidebar actively watches your workspace:
-*   Identifies your active **Programming Language**.
-*   Detects **Syntax Errors** and automatically promotes "Fix" prompts.
-*   Prioritizes your **Frequent Habits** based on time of day and project context.
+### 🔮 Context Suggestions
+The sidebar suggests relevant prompts based on what you are doing:
+*   Detects the **Language** of your open file.
+*   Suggests "Fix" prompts when **Errors** are detected.
 
-### ☑️ Multi-Select & Vault Ops
-*   **Bulk Management**: Enter select mode to delete, move, or export groups of prompts.
-*   **Tabbed Organization**: Infinite category support to keep your playbooks tidy.
-*   **Portable**: Export/Import your entire vault as JSON to sync across machines.
+### ☑️ Easy Management
+*   **Edit & Delete**: Manage your collection directly from the sidebar.
+*   **Categories**: Use standard categories or create your own workflow.
+*   **Portable**: Export and import your vault to share or backup.
 
 ---
 
-## 🛠️ Configuration & Pro Tips
+## 🛠️ Settings
 
-Access the ⚙️ **SETTINGS** panel to unlock the full power:
-*   **Tone Control**: Switch between Professional, Casual, or Socratic (teaching) modes.
-*   **Size Constraints**: Force AI responses to be Concise, Detailed, or Bullet-pointed.
-*   **Modifiers**: Toggle specific variables like `{{stack}}` or `{{focus}}` to dynamically change thousands of prompts at once.
-
-> **Pro Tip**: Use the `☑️ SELECT` button to quickly export specific prompt categories for teammates!
+Customize how Briskli works:
+*   **Tone**: Set your preferred AI response tone (e.g., Professional, Casual).
+*   **Length**: Choose how verbose you want the AI responses to be.
+*   **Variables**: Toggle dynamic variables to adjust prompts on the fly.
 
 ---
 
-## 🚀 Getting Started in 30 Seconds
+## 🚀 Getting Started
 
-1.  **Open**: Click the ⚡ icon in the VS Code Activity Bar.
-2.  **Activate**: Highlight some code in your editor.
-3.  **Deploy**: Ctrl+Click "Optimize Selected" and watch Briskli go to work.
+1.  **Open**: Click the Briskli icon in the VS Code Activity Bar.
+2.  **Select**: Highlight some code in your editor.
+3.  **Click**: Run any prompt from the list to analyze or modify the code.
 
 ---
 
-## 📜 Documentation & Contributing
+## 📜 Documentation
 
-*   [Detailed Usage Guide](./docs/USAGE.md)
 *   [GitHub Repository](https://github.com/Pastarafian/Briskli)
 
 ---
 
 <p align="center">
-  <b>Built for engineers who code at the speed of thought.</b>
+  <b>Simple tools for better coding.</b>
 </p>

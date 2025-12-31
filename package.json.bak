@@ -1,8 +1,8 @@
 {
   "name": "briskli",
   "displayName": "Briskli",
-  "description": "A simplified prompt manager to boost your coding productivity.",
-  "version": "0.1.1",
+  "description": "Premium Agentic Prompt Vault for Antigravity",
+  "version": "0.1.0",
   "publisher": "Pastarafian",
   "license": "MIT",
   "icon": "icon.png",
@@ -19,9 +19,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onView:briskli.views.main"
-  ],
+  "activationEvents": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/Pastarafian/Briskli.git"
@@ -49,6 +47,11 @@
         "command": "briskli.generatePrompts",
         "title": "Briskli: Consult AI for Prompts",
         "icon": "$(sparkle)"
+      },
+      {
+        "command": "briskli.focus",
+        "title": "Briskli: Focus View",
+        "category": "Briskli"
       }
     ],
     "submenus": [
@@ -83,18 +86,19 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "briskli-sidebar",
+          "id": "briskli",
           "title": "Briskli",
-          "icon": "$(zap)"
+          "icon": "$(library)"
         }
       ]
     },
     "views": {
-      "briskli-sidebar": [
+      "briskli": [
         {
           "type": "webview",
           "id": "briskli.views.main",
-          "name": "Briskli"
+          "name": "Briskli",
+          "icon": "$(library)"
         }
       ]
     }

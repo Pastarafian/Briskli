@@ -271,17 +271,30 @@ class BriskliDataManager {
     }
 }
 
-// --- VIEW PROVIDER ---
 class BriskliViewProvider implements vscode.WebviewViewProvider {
     public static readonly viewType = 'briskli.views.main';
     private _view?: vscode.WebviewView;
 
-    constructor(private readonly _extensionUri: vscode.Uri, private readonly _manager: BriskliDataManager) { }
+    constructor(
+        private readonly _extensionUri: vscode.Uri,
+        private readonly _manager: BriskliDataManager,
+        private readonly _outputChannel?: vscode.OutputChannel
+    ) { }
+
+    private log(msg: string) {
+        if (this._outputChannel) {
+            this._outputChannel.appendLine('[' + new Date().toLocaleTimeString() + '] ' + msg);
+        }
+    }
 
     public resolveWebviewView(webviewView: vscode.WebviewView) {
+        this.log('resolveWebviewView called');
         this._view = webviewView;
         webviewView.webview.options = { enableScripts: true, localResourceRoots: [this._extensionUri] };
+
+        this.log('Generating HTML...');
         webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+        this.log('HTML set to webview');
 
         // Re-send data when webview becomes visible again (after collapse/expand)
         webviewView.onDidChangeVisibility(() => {
@@ -291,6 +304,12 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
         });
 
         webviewView.webview.onDidReceiveMessage(async (m) => {
+            // Handle debug logs from webview
+            if (m.type === 'debugLog') {
+                this.log('[WEBVIEW] ' + m.msg);
+                return;
+            }
+
             switch (m.type) {
                 case 'promptClick': await this.handlePromptClick(m.id, m.ctrl); break;
                 case 'copy': await this.handleCopy(m.id); break;
@@ -414,6 +433,9 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
                         this._manager.data.categories.forEach(c => { c.prompts = c.prompts.filter(p => !dIds.includes(p.id)); });
                     }
                     this._manager.saveUserData();
+                    this.updateWebview();
+                    break;
+                case 'ready':
                     this.updateWebview();
                     break;
             }
@@ -564,6 +586,15 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 
     private _getHtmlForWebview(webview: vscode.Webview) {
         const nonce = getNonce();
+
+        // Escape only characters that break template literals: backticks and ${
+        const escapeForTemplate = (str: string) => str
+            .replace(/`/g, '\\`')
+            .replace(/\$\{/g, '\\${');
+
+        const initialData = escapeForTemplate(JSON.stringify(this._manager.data));
+        const initialPred = escapeForTemplate(JSON.stringify(this._manager.scorePredictedPrompts()));
+
         return `<!DOCTYPE html><html><head>
 			<style>
 				:root { --accent: #00ffcc; --accent-dim: rgba(0, 255, 204, 0.1); --bg: var(--vscode-sideBar-background); --card-bg: var(--vscode-editor-background); --card-border: var(--vscode-panel-border); --text: var(--vscode-foreground); }
@@ -577,26 +608,26 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				.gen-btn:hover { opacity: 1; color: var(--accent); }
 				.section-header { display: none; } /* Deprecated */
 				.pred-sec { flex-shrink: 0; display: flex; flex-direction: column; border-bottom: 1px solid var(--card-border); }
-				.pred-sec .grid-container { height: 92px; overflow-y: auto; padding: 4px 8px; }
-				.vault-sec { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 122px; }
-				.vault-sec .grid-container { flex: 1; overflow-y: auto; padding: 4px 8px 8px 8px; }
+				.pred-sec .grid-container { height: 92px; overflow-y: auto; padding: 4px 8px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+				.vault-sec { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 124px; padding-top: 4px; }
+				.vault-sec .grid-container { flex: 1; overflow-y: auto; padding: 4px 8px 16px 8px; }
 				.grid-container { border-bottom: 1px solid rgba(255,255,255,0.02); }
 				.grid-container::-webkit-scrollbar { width: 4px; }
 				.grid-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
-				.prompt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 6px; padding-bottom: 4px; }
+				.prompt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 110px), 1fr)); gap: 6px; padding-bottom: 4px; }
 				
 				/* RESTORED COMPONENT STYLES */
 				.prompt-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 2px 8px; border-radius: 4px; cursor: pointer; transition: 0.2s; height: 24px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; position: relative; user-select: none; outline: none; }
 				.prompt-card:focus { border-color: var(--accent); background: var(--accent-dim); }
 				.prompt-card:hover { border-color: rgba(0, 255, 204, 0.4); background: rgba(255,255,255,0.02); }
-				.prompt-card.expanded { grid-column: span 2; grid-row: span 3; height: auto !important; min-height: 40px; border-color: var(--accent); background: var(--accent-dim); padding: 5px 6px 3px 6px; z-index: 10; cursor: default; justify-content: flex-start; gap: 4px; }
+				.prompt-card.expanded { grid-column: span 2; grid-row: span 3; height: auto !important; min-height: 40px; border-color: var(--accent); background: var(--accent-dim); padding: 5px 6px; z-index: 10; cursor: default; justify-content: flex-start; gap: 4px; }
 				.prompt-card.selected { border-color: var(--accent); background: var(--accent-dim); }
 				.prompt-card.pinned::after { content: '📌'; position: absolute; top: 1px; right: 1px; font-size: 6px; opacity: 0.6; }
 				.prompt-title { font-size: 9.5px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); opacity: 0.8; }
 				.expanded .prompt-title { white-space: normal; margin-bottom: 0px; color: var(--accent); padding-right: 14px; font-size: 10px; opacity: 1; }
 				.prompt-content { display: none; font-size: 9px; line-height: 1.25; opacity: 0.9; color: var(--text); margin-bottom: 2px; white-space: pre-wrap; user-select: text; }
 				.expanded .prompt-content { display: block; margin-bottom: 0; line-height: 1.2; }
-				.card-actions { display: none; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+				.card-actions { display: none; gap: 4px; flex-wrap: wrap; margin-top: auto; }
 				.expanded .card-actions { display: flex; }
 				.card-check { position: absolute; top: 3px; left: 3px; opacity: 1; transform: scale(0.8); display: none; margin:0; cursor: pointer; }
 				.ctrl-mode .card-check { display: block; }
@@ -605,22 +636,23 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				.action-btn.secondary { background: rgba(255,255,255,0.1); color: var(--text); }
 				.reason-badge { position: absolute; top: 2px; right: 3px; font-size: 7px; opacity: 0.5; background: rgba(0,0,0,0.4); padding: 1px 5px; border-radius: 2px; font-weight: bold; }
 				
-				.vault-toolbar { display: flex; align-items: center; border-bottom: 1px solid var(--card-border); background: var(--bg); height: 26px; padding: 0 4px; flex-shrink: 0; justify-content: space-between; gap: 4px; }
+				.vault-toolbar { display: flex; align-items: center; border-bottom: 1px solid var(--card-border); background: var(--bg); height: 26px; padding: 0; flex-shrink: 0; justify-content: space-between; gap: 4px; }
+				.nav-btn { background: transparent; border: none; color: var(--text); opacity: 0.5; cursor: pointer; padding: 0 4px; font-size: 14px; display: flex; align-items: center; height: 100%; transition: 0.2s; }
+				.nav-btn:hover { opacity: 1; background: rgba(255,255,255,0.05); }
+				.tabs-wrapper { flex: 1; display: flex; align-items: center; overflow: hidden; height: 100%; position: relative; }
 				.tabs { display: flex; overflow-x: auto; gap: 4px; padding: 0 4px; flex: 1; font-size: 11px; scrollbar-width: none; align-items: center; height: 100%; scroll-behavior: smooth; }
 				.tabs::-webkit-scrollbar { display: none; }
-				.scroll-btn { cursor: pointer; opacity: 0.4; font-size: 10px; padding: 0 2px; user-select: none; transition: 0.2s; display: flex; align-items: center; }
-				.scroll-btn:hover { opacity: 1; color: var(--accent); }
-				.tab { padding: 2px 8px; cursor: pointer; opacity: 0.5; border-radius: 3px; white-space: nowrap; height: 20px; line-height: 14px; transition: 0.2s; border: 1px solid transparent; display: flex; align-items: center; flex-shrink: 0; }
+				.tab { padding: 2px 8px; cursor: pointer; opacity: 0.5; border-radius: 3px; white-space: nowrap; height: 20px; line-height: 14px; transition: 0.2s; border: 1px solid transparent; display: flex; align-items: center; }
 				.tab:hover { opacity: 0.8; }
 				.tab.active { opacity: 1; background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); font-weight: 600; }
 				
-				.config-panel { display: none; background: var(--card-bg); border-bottom: 1px solid var(--card-border); padding: 4px 8px; flex-shrink: 0; flex-direction: column; gap: 2px; }
+				.config-panel { display: none; background: var(--card-bg); border-bottom: 1px solid var(--card-border); padding: 4px 8px; flex-shrink: 0; flex-direction: column; gap: 4px; }
 				.config-panel.show { display: flex; }
 				.section-toggles { display: flex; gap: 4px; flex-wrap: wrap; }
 				.sec-toggle { background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); color: var(--text); padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: 600; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 4px; height: 20px; }
 				.sec-toggle:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
 				.sec-toggle.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-				.collapsible-sec { padding: 4px 0; border-top: 1px solid var(--card-border); margin-top: 0px; }
+				.collapsible-sec { padding: 8px 0; border-top: 1px solid var(--card-border); margin-top: 2px; }
 				.config-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; width: 100%; }
 				
 				.conf-group { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
@@ -665,7 +697,7 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				<div class="search-toolbar">
 					<input type="text" id="search-in" class="search-input" placeholder="Search prompts..." oninput="render()">
 					<div class="pred-label">🔮 PREDICTED</div>
-					<div class="gen-btn" onclick="toggleConfig()" title="Toggle Settings Panel">⚙️ SETTINGS</div>
+					<div class="gen-btn" onclick="toggleConfig()" title="Toggle Settings Panel"><span>⚙️ SETTINGS</span></div>
 				</div>
 				
 				<div id="config-panel" class="config-panel">
@@ -766,13 +798,15 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				</div>
 				<div class="vault-sec">
 					<div class="vault-toolbar">
-						<div class="scroll-btn" onclick="scrollTabs(-1)">◀</div>
-						<div class="tabs" id="tabs"></div>
-						<div class="scroll-btn" onclick="scrollTabs(1)">▶</div>
+						<div class="tabs-wrapper">
+							<button class="nav-btn left" onclick="scrollTabs(-1)">‹</button>
+							<div class="tabs" id="tabs"></div>
+							<button class="nav-btn right" onclick="scrollTabs(1)">›</button>
+						</div>
 						<div class="header-btns">
-							<span class="header-btn" id="btn-ctrl" onclick="toggleCtrl()" title="Enable Selection Mode">☑️</span>
+							<span class="header-btn" id="btn-ctrl" onclick="toggleCtrl()" title="Selection Mode">☑️</span>
 							<span class="header-btn" onclick="vscode.postMessage({type:'addCat'})" title="Add Category">➕</span>
-							<span class="header-btn" onclick="openGenModal()" title="AI Generate Prompts" style="opacity: 0.8; font-size: 11px;">✨</span>
+							<span class="header-btn" onclick="openGenModal()" title="AI Generate Prompts" style="opacity: 0.8; font-size: 14px;">✨</span>
 						</div>
 					</div>
 					<div class="grid-container" id="vault-container">
@@ -841,11 +875,45 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 			</div>
 
 			<div id="toast" class="toast"></div>
+			<div id="debug-log" style="position:fixed; bottom:0; left:0; right:0; max-height:150px; overflow-y:auto; background:#1a1a2e; border-top:2px solid #00ffcc; font-family:monospace; font-size:10px; padding:4px; z-index:9999; display:block;"></div>
 			<script nonce="${nonce}">
 				const vscode = acquireVsCodeApi();
-				let data = null, predPrompts = [], activeTab = 'all', expId = null, expSection = null;
+				
+				// DEBUG LOGGING UTILITY - sends to VS Code Output Channel
+				const debugLog = (msg, type = 'info') => {
+					const el = document.getElementById('debug-log');
+					const time = new Date().toLocaleTimeString();
+					const color = type === 'error' ? '#ff6b6b' : type === 'warn' ? '#ffd93d' : type === 'success' ? '#6bcb77' : '#8be9fd';
+					if(el) el.innerHTML += '<div style="color:' + color + '">[' + time + '] ' + msg + '</div>';
+					if(el) el.scrollTop = el.scrollHeight;
+					console.log('[Briskli ' + type.toUpperCase() + ']', msg);
+					// Send to extension Output Channel
+					vscode.postMessage({ type: 'debugLog', msg: '[' + type.toUpperCase() + '] ' + msg });
+				};
+
+				debugLog('Script started');
+				
+				let data = null;
+				let predPrompts = [];
+				
+				try {
+					data = ${initialData};
+					debugLog('Data parsed successfully. Categories: ' + (data?.categories?.length || 0), 'success');
+				} catch(e) {
+					debugLog('FAILED to parse initial data: ' + e.message, 'error');
+				}
+				
+				try {
+					predPrompts = ${initialPred};
+					debugLog('Predicted prompts parsed. Count: ' + (predPrompts?.length || 0), 'success');
+				} catch(e) {
+					debugLog('FAILED to parse predicted prompts: ' + e.message, 'error');
+				}
+
+				let activeTab = 'all', expId = null, expSection = null;
 				let expTimer = null, isCtrl = false, selectedIds = new Set();
                 let focusedIdx = -1;
+
 
 				let configOpen = false;
 				let openSections = { style: false, mods: false, modes: false, actions: false };
@@ -870,48 +938,51 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 
 				function scrollTabs(dir) {
 					const t = document.getElementById('tabs');
-					if(!t) return;
-					const tabs = Array.from(t.querySelectorAll('.tab'));
-					if(!tabs.length) return;
-					t.scrollBy({ left: dir * (tabs[0].offsetWidth + 4), behavior: 'smooth' });
+					if(t) t.scrollBy({ left: dir * 100, behavior: 'smooth' });
 				}
 
 				function render() {
-					if(!data) return;
+					debugLog('render() called');
+					if(!data) { debugLog('data is null/undefined - aborting render', 'error'); return; }
+					debugLog('data.categories count: ' + (data.categories?.length || 0));
 					const search = (document.getElementById('search-in')?.value || '').toLowerCase();
 					
-                    const cats = data.categories || [];
-                    const tabs = [
-                        {id:'all', name:'All', icon: '🌐'}, 
-                        {id:'recent', name:'Recent', icon: '🕒'},
-                        {id:'pinned', name:'Pinned', icon: '📌'},
-                        {id:'suggested', name:'Suggested', icon: '✨'}, 
-                        ...cats, 
-                        {id:'playbooks', name:'Playbooks', icon: '📚'}
-                    ];
+					const cats = data.categories || [];
+					debugLog('cats array length: ' + cats.length);
+					const tabs = [
+						{id:'all', name:'All'}, 
+						{id:'recent', name:'Recent'},
+						{id:'pinned', name:'Pinned'},
+						{id:'suggested', name:'Suggested'}, 
+						...cats, 
+						{id:'playbooks', name:'Playbooks'}
+					];
+
 					const tabsEl = document.getElementById('tabs');
-                    if (tabsEl) {
-						tabsEl.innerHTML = tabs.map(t => \`
-							<div id="tab-\${t.id}" class="tab \${activeTab === t.id ? 'active' : ''}" onclick="activeTab='\${t.id}';render(); document.getElementById('tab-\${t.id}').scrollIntoView({inline:'center'})">
-								<span style="font-size: 10px; margin-right: 4px; opacity: 0.8;">\${t.icon || ''}</span>
-								<span>\${t.name}</span>
-							</div>\`).join('');
-					}
+				if (tabsEl) {
+					debugLog('Rendering tabs...');
+					tabsEl.innerHTML = tabs.map(t => '<div id="tab-' + t.id + '" class="tab ' + (activeTab === t.id ? 'active' : '') + '" onclick="activeTab=\'' + t.id + '\';render(); document.getElementById(\'tab-' + t.id + '\').scrollIntoView({inline:\'center\'})">' + t.name + '</div>').join('');
+					debugLog('Tabs rendered: ' + tabs.length, 'success');
+				} else {
+					debugLog('tabsEl not found!', 'error');
+				}
 
-					renderGrid('pred-grid', (predPrompts || []).filter(p => (p.title+p.prompt).toLowerCase().includes(search)), true, 'pred');
-					
-					let vp = [];
-                    const allP = cats.flatMap(c => c.prompts || []);
-                    const sugP = data.suggested || [];
-                    const playP = data.playbooks || [];
-                    const sourceP = [...allP, ...sugP, ...playP];
+				debugLog('Rendering pred-grid with ' + (predPrompts?.length || 0) + ' items');
+				renderGrid('pred-grid', (predPrompts || []).filter(p => (p.title + p.prompt).toLowerCase().includes(search)), true, 'pred');
 
-					if(activeTab === 'all') vp = [...allP];
-                    else if(activeTab === 'recent') vp = (data.recentlyUsedIds || []).map(id => sourceP.find(x => x.id === id)).filter(Boolean);
-                    else if(activeTab === 'pinned') vp = (data.pinnedIds || []).map(id => allP.find(x => x.id === id)).filter(Boolean);
-					else if(activeTab === 'playbooks') vp = [...playP];
-					else if(activeTab === 'suggested') vp = [...sugP];
-					else vp = [...(cats.find(c => c.id === activeTab)?.prompts || [])];
+let vp = [];
+const allP = cats.flatMap(c => c.prompts || []);
+debugLog('Total prompts from categories: ' + allP.length);
+const sugP = data.suggested || [];
+const playP = data.playbooks || [];
+const sourceP = [...allP, ...sugP, ...playP];
+
+if (activeTab === 'all') vp = [...allP];
+else if (activeTab === 'recent') vp = (data.recentlyUsedIds || []).map(id => sourceP.find(x => x.id === id)).filter(Boolean);
+else if (activeTab === 'pinned') vp = (data.pinnedIds || []).map(id => allP.find(x => x.id === id)).filter(Boolean);
+else if (activeTab === 'playbooks') vp = [...playP];
+else if (activeTab === 'suggested') vp = [...sugP];
+else vp = [...(cats.find(c => c.id === activeTab)?.prompts || [])];
 
 const sType = document.getElementById('sort-sel')?.value || 'def';
 if (sType === 'az') vp.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
@@ -927,6 +998,7 @@ if (sType === 'pred') {
 }
 
 const filtered = vp.filter(p => (p.title + p.prompt).toLowerCase().includes(search));
+debugLog('Rendering vault-grid with ' + filtered.length + ' filtered prompts');
 renderGrid('vault-grid', filtered, false, 'vault');
 
 const modesEl = document.getElementById('modes');
@@ -934,27 +1006,34 @@ if (modesEl) modesEl.innerHTML = (data.modes || []).map(m => \`<div class="mode-
 					
 					const vCont = document.getElementById('vault-container');
 					if(vCont) {
-                        if(isCtrl) vCont.classList.add('ctrl-mode'); else vCont.classList.remove('ctrl-mode');
-                    }
+						if(isCtrl) vCont.classList.add('ctrl-mode'); else vCont.classList.remove('ctrl-mode');
+					}
 					const btnSave = document.getElementById('btn-save'); if(btnSave) btnSave.style.display = isCtrl ? 'flex' : 'none';
 					const btnDel = document.getElementById('btn-del'); if(btnDel) btnDel.style.display = isCtrl ? 'flex' : 'none';
 					
-                    const btnCtrl = document.getElementById('btn-ctrl'); 
-                    if(btnCtrl) {
-                        btnCtrl.classList.toggle('active', isCtrl);
-                        btnCtrl.style.opacity = isCtrl ? '1' : '0.7';
-                        btnCtrl.style.color = isCtrl ? 'var(--accent)' : 'inherit';
-                    }
+					const btnCtrl = document.getElementById('btn-ctrl'); 
+					if(btnCtrl) {
+						btnCtrl.classList.toggle('active', isCtrl);
+						btnCtrl.style.opacity = isCtrl ? '1' : '0.7';
+						btnCtrl.style.color = isCtrl ? 'var(--accent)' : 'inherit';
+					}
 					
 					const panel = document.getElementById('config-panel');
 					if(panel) panel.classList.toggle('show', configOpen);
 				}
 
 				function renderGrid(elId, prompts, showReason, section) {
+					debugLog('renderGrid called: ' + elId + ' with ' + prompts.length + ' prompts');
 					const el = document.getElementById(elId);
-					if(!el) return;
-                    if(prompts.length === 0) { el.innerHTML = '<div class="empty-msg">No prompts found here.</div>'; return; }
-					el.innerHTML = prompts.map((p, i) => {
+					if(!el) { debugLog('Grid element not found: ' + elId, 'error'); return; }
+                    if(prompts.length === 0) { 
+						debugLog('No prompts for ' + elId + ', showing empty message', 'warn');
+						el.innerHTML = '<div class="empty-msg">No prompts found here.</div>'; 
+						return; 
+					}
+					try {
+						el.innerHTML = prompts.map((p, i) => {
+
 						const isExp = (expId === p.id && expSection === section);
 						const isSel = selectedIds.has(p.id);
                         const isPinned = data.pinnedIds.includes(p.id);
@@ -976,6 +1055,10 @@ if (modesEl) modesEl.innerHTML = (data.modes || []).map(m => \`<div class="mode-
 							</div>
 						</div>\`;
 					}).join('');
+					debugLog('Grid ' + elId + ' rendered successfully with ' + prompts.length + ' cards', 'success');
+					} catch(gridErr) {
+						debugLog('Error rendering grid ' + elId + ': ' + gridErr.message, 'error');
+					}
 				}
 
 				function toggleCtrl() { isCtrl = !isCtrl; if(!isCtrl) selectedIds.clear(); render(); }
@@ -1047,10 +1130,11 @@ if (modesEl) modesEl.innerHTML = (data.modes || []).map(m => \`<div class="mode-
                     if(e.key === 'ArrowLeft') { focusedIdx = Math.max(focusedIdx - 1, 0); cards[focusedIdx]?.focus(); e.preventDefault(); }
                     if(e.key === 'Enter' && focusedIdx >= 0) { cards[focusedIdx].click(); e.preventDefault(); }
                     if(e.key === 'Tab') {
-                        const tabs = Array.from(document.querySelectorAll('#tabs .tab'));
-                        let cur = tabs.findIndex(t => t.classList.contains('active'));
+                        const tabs = document.querySelectorAll('.tab');
+                        let cur = Array.from(tabs).findIndex(t => t.classList.contains('active'));
                         let next = (cur + 1) % tabs.length;
                         tabs[next].click();
+                        tabs[next].scrollIntoView({ inline: 'center' });
                         e.preventDefault();
                     }
                 });
@@ -1123,6 +1207,16 @@ if (modesEl) modesEl.innerHTML = (data.modes || []).map(m => \`<div class="mode-
 					if(e.data.type === 'doTab') { activeTab = e.data.id; render(); }
 					if(e.data.type === 'toast') { const t = document.getElementById('toast'); t.innerText = e.data.msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
 				});
+
+				// Initial render and signal
+				console.log('Briskli Webview Initializing...');
+				try {
+					render();
+					console.log('Initial render complete');
+				} catch(e) {
+					console.error('Initial render failed:', e);
+				}
+				vscode.postMessage({ type: 'ready' });
 			</script>
 		</body></html>`;
     }
@@ -1135,8 +1229,27 @@ function getNonce() {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+    // Create Output Channel for debugging
+    const outputChannel = vscode.window.createOutputChannel('Briskli Debug');
+    outputChannel.show(true);  // Show immediately
+    outputChannel.appendLine('=== Briskli Extension Activated ===');
+    outputChannel.appendLine('Time: ' + new Date().toISOString());
+
+    console.log('Briskli extension is now active!');
+
+    // Debug Status Bar
+    const status = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+    status.command = 'briskli.focus';
+    status.text = '$(library) Briskli';
+    status.tooltip = 'Click to open Briskli vault';
+    status.show();
+    context.subscriptions.push(status, outputChannel);
+
     const manager = new BriskliDataManager(context.extensionUri, context.globalState);
-    const provider = new BriskliViewProvider(context.extensionUri, manager);
+    outputChannel.appendLine('Data Manager initialized. Categories: ' + manager.data.categories.length);
+    outputChannel.appendLine('Total prompts: ' + manager.getAllPrompts().length);
+
+    const provider = new BriskliViewProvider(context.extensionUri, manager, outputChannel);
 
     // Initial tracking
     if (vscode.window.activeTextEditor) {
@@ -1147,6 +1260,9 @@ export function activate(context: vscode.ExtensionContext) {
     const reg = (id: string, topic: string) => vscode.commands.registerCommand(id, () => provider.handleAiGen(topic));
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(BriskliViewProvider.viewType, provider),
+        vscode.commands.registerCommand('briskli.focus', () => {
+            vscode.commands.executeCommand('briskli.views.main.focus');
+        }),
         reg('briskli.genOptimize', 'Selection Optimize'),
         reg('briskli.genSecure', 'Selection Security'),
         reg('briskli.genDocs', 'Selection Documentation'),
