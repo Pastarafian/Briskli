@@ -614,6 +614,19 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				.tab:hover { opacity: 0.8; }
 				.tab.active { opacity: 1; background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); font-weight: 600; }
 				
+
+				.nav-groups { display: flex; border-bottom: 1px solid var(--card-border); background: var(--bg); height: 26px; z-index: 5; position: relative; }
+				.nav-group-btn { flex: 1; border: none; background: transparent; color: var(--text); font-size: 10px; font-weight: bold; cursor: pointer; opacity: 0.6; transition: 0.2s; white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 4px; border-right: 1px solid var(--card-border); }
+				.nav-group-btn:last-child { border-right: none; }
+				.nav-group-btn:hover { opacity: 1; background: rgba(255,255,255,0.02); }
+				.nav-group-btn.active { opacity: 1; color: var(--accent); background: var(--accent-dim); }
+				
+				.dropdown-menu { position: absolute; top: 26px; left: 0; width: 100%; background: var(--card-bg); border-bottom: 1px solid var(--card-border); z-index: 100; display: none; grid-template-columns: repeat(2, 1fr); padding: 4px; gap: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+				.dropdown-menu.show { display: grid; }
+				.dropdown-item { padding: 6px 10px; cursor: pointer; font-size: 11px; color: var(--text); opacity: 0.8; border-radius: 3px; display: flex; align-items: center; gap: 6px; }
+				.dropdown-item:hover { background: rgba(255,255,255,0.1); opacity: 1; color: var(--accent); }
+				.dropdown-item.active { background: var(--accent-dim); color: var(--accent); font-weight: bold; opacity: 1; }
+
 				.config-panel { display: none; background: var(--card-bg); border-bottom: 1px solid var(--card-border); padding: 4px 8px; flex-shrink: 0; flex-direction: column; gap: 2px; }
 				.config-panel.show { display: flex; }
 				.section-toggles { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -765,16 +778,21 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 					<div class="grid-container" id="pred-container"><div class="prompt-grid" id="pred-grid"></div></div>
 				</div>
 				<div class="vault-sec">
-					<div class="vault-toolbar">
-						<div class="scroll-btn" onclick="scrollTabs(-1)">◀</div>
-						<div class="tabs" id="tabs"></div>
-						<div class="scroll-btn" onclick="scrollTabs(1)">▶</div>
-						<div class="header-btns">
-							<span class="header-btn" id="btn-ctrl" onclick="toggleCtrl()" title="Enable Selection Mode">☑️</span>
-							<span class="header-btn" onclick="vscode.postMessage({type:'addCat'})" title="Add Category">➕</span>
-							<span class="header-btn" onclick="openGenModal()" title="AI Generate Prompts" style="opacity: 0.8; font-size: 11px;">✨</span>
+						<div class="nav-groups">
+							<button class="nav-group-btn" id="grp-build" onclick="toggleGroup('build')">🏗️ BUILD</button>
+							<button class="nav-group-btn" id="grp-quality" onclick="toggleGroup('quality')">🛡️ QUALITY</button>
+							<button class="nav-group-btn" id="grp-ops" onclick="toggleGroup('ops')">🚢 OPS</button>
+							<button class="nav-group-btn" id="grp-gen" onclick="toggleGroup('generated')">🤖 GEN</button>
 						</div>
-					</div>
+						<div class="dropdown-menu" id="dropdown"></div>
+						<div class="header-btns" style="display:flex; justify-content: space-between; padding: 2px 4px; border-bottom: 1px solid var(--card-border); background: var(--bg);">
+							<div style="font-size: 10px; opacity: 0.5; padding-left: 4px; display:flex; align-items:center;" id="current-cat-label">ALL</div>
+							<div style="display:flex; gap: 4px;">
+								<span class="header-btn" id="btn-ctrl" onclick="toggleCtrl()" title="Enable Selection Mode">☑️</span>
+								<span class="header-btn" onclick="vscode.postMessage({type:'addCat'})" title="Add Category">➕</span>
+								<span class="header-btn" onclick="openGenModal()" title="AI Generate Prompts" style="opacity: 0.8; font-size: 11px;">✨</span>
+							</div>
+						</div>
 					<div class="grid-container" id="vault-container">
 						<div class="prompt-grid" id="vault-grid"></div>
 					</div>
@@ -846,6 +864,14 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 				let data = null, predPrompts = [], activeTab = 'all', expId = null, expSection = null;
 				let expTimer = null, isCtrl = false, selectedIds = new Set();
                 let focusedIdx = -1;
+				let activeGroup = null;
+
+				const groups = {
+					build: ['planning', 'creativity', 'building', 'database', 'ai'],
+					quality: ['refine', 'bugs', 'assurance', 'hardening'],
+					ops: ['ship', 'github', 'docs', 'utilities'],
+					generated: ['generated', 'recent', 'pinned', 'suggested', 'playbooks']
+				};
 
 				let configOpen = false;
 				let openSections = { style: false, mods: false, modes: false, actions: false };
@@ -868,12 +894,73 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 					if(tog) tog.classList.toggle('active', openSections[id]);
 				}
 
-				function scrollTabs(dir) {
-					const t = document.getElementById('tabs');
-					if(!t) return;
-					const tabs = Array.from(t.querySelectorAll('.tab'));
-					if(!tabs.length) return;
-					t.scrollBy({ left: dir * (tabs[0].offsetWidth + 4), behavior: 'smooth' });
+
+				function toggleGroup(grp) {
+					const dd = document.getElementById('dropdown');
+					if (activeGroup === grp && dd.classList.contains('show')) {
+						dd.classList.remove('show');
+						activeGroup = null;
+						renderNav();
+						return;
+					}
+					
+					activeGroup = grp;
+					renderNav();
+					
+					// Render dropdown content
+					const cats = data.categories || [];
+					let items = [];
+					
+					if (grp === 'generated') {
+						// Special handling for Generated/Meta group
+						const metaMap = {
+							'generated': {name: 'Generated', icon: '🤖'},
+							'recent': {name: 'Recent', icon: '🕒'},
+							'pinned': {name: 'Pinned', icon: '📌'},
+							'suggested': {name: 'Suggested', icon: '✨'},
+							'playbooks': {name: 'Playbooks', icon: '📚'}
+						};
+						items = groups[grp].map(g => ({id: g, ...metaMap[g] }));
+					} else {
+						// Filter categories that match the group list
+						items = groups[grp].map(id => cats.find(c => c.id === id)).filter(Boolean);
+					}
+
+					dd.innerHTML = items.map(c => 
+						\`<div class="dropdown-item \${activeTab === c.id ? 'active' : ''}" onclick="selectCat('\${c.id}')">\${c.icon || ''} \${c.name}</div>\`
+					).join('');
+					
+					dd.classList.add('show');
+				}
+
+				function selectCat(id) {
+					activeTab = id;
+					document.getElementById('dropdown').classList.remove('show');
+					activeGroup = null; // Close dropdown
+					renderNav();
+					render();
+				}
+
+				function renderNav() {
+					['build', 'quality', 'ops', 'gen'].forEach(g => {
+						const btn = document.getElementById('grp-' + g);
+						const bg = g === 'gen' ? 'generated' : g;
+						// Highlight if dropdown open OR if active tab is inside this group
+						const isActive = (activeGroup === bg) || (groups[bg] && groups[bg].includes(activeTab));
+						if(btn) btn.classList.toggle('active', isActive);
+					});
+					
+					// Update label
+					let label = 'ALL';
+					if (activeTab === 'all') label = 'ALL PROMPTS';
+					else if (['recent','pinned','suggested','playbooks','generated'].includes(activeTab)) {
+						label = activeTab.toUpperCase();
+					} else {
+						const cat = (data.categories || []).find(c => c.id === activeTab);
+						if (cat) label = cat.name.toUpperCase();
+					}
+					const lblEl = document.getElementById('current-cat-label');
+					if(lblEl) lblEl.innerText = label;
 				}
 
 				function render() {
@@ -881,22 +968,7 @@ class BriskliViewProvider implements vscode.WebviewViewProvider {
 					const search = (document.getElementById('search-in')?.value || '').toLowerCase();
 					
                     const cats = data.categories || [];
-                    const tabs = [
-                        {id:'all', name:'All', icon: '🌐'}, 
-                        {id:'recent', name:'Recent', icon: '🕒'},
-                        {id:'pinned', name:'Pinned', icon: '📌'},
-                        {id:'suggested', name:'Suggested', icon: '✨'}, 
-                        ...cats, 
-                        {id:'playbooks', name:'Playbooks', icon: '📚'}
-                    ];
-					const tabsEl = document.getElementById('tabs');
-                    if (tabsEl) {
-						tabsEl.innerHTML = tabs.map(t => \`
-							<div id="tab-\${t.id}" class="tab \${activeTab === t.id ? 'active' : ''}" onclick="activeTab='\${t.id}';render(); document.getElementById('tab-\${t.id}').scrollIntoView({inline:'center'})">
-								<span style="font-size: 10px; margin-right: 4px; opacity: 0.8;">\${t.icon || ''}</span>
-								<span>\${t.name}</span>
-							</div>\`).join('');
-					}
+					renderNav();
 
 					renderGrid('pred-grid', (predPrompts || []).filter(p => (p.title+p.prompt).toLowerCase().includes(search)), true, 'pred');
 					

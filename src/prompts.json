@@ -2676,6 +2676,12 @@
                     "lastUsed": 0
                 },
                 {
+                    "id": "generated",
+                    "name": "Generated",
+                    "icon": "🤖",
+                    "prompts": []
+                },
+                {
                     "id": "ship_25",
                     "title": "🔍 Explain Plan Analyzer",
                     "prompt": "Analyze this complex SQL query. Explain the execution plan, specifically looking for full table scans or inefficient joins. Suggest indices that would optimize the cost. Use {{language}} and {{framework}} context. Focus: {{focus}}. Mode: {{mode}}. Response: {{responseLength}}. Tone: {{attitude}}.",
@@ -3083,6 +3089,12 @@
                     "lastUsed": 0
                 }
             ]
+        },
+        {
+            "id": "generated",
+            "name": "Generated",
+            "icon": "✨",
+            "prompts": []
         }
     ],
     "playbooks": [
