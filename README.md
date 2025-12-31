@@ -3,70 +3,79 @@
 </p>
 
 # Briskli ✨
+### The Premium Agentic Prompt Vault for Modern Engineers
 
-**Briskli** is a premium, high-performance VS Code extension designed to supercharge your AI-assisted development workflow. It provides an agentic prompt vault with "Smart Injection" capabilities, letting you manage and deploy complex prompts to Cursor, Copilot, Cody, and more—at lightning speed.
+[![Version](https://img.shields.io/badge/version-0.1.0-cyan.svg)](https://github.com/Pastarafian/Briskli)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-VS%20Code-brightgreen.svg)](https://marketplace.visualstudio.com/items?itemName=Pastarafian.briskli)
 
----
-
-## ⚡ Core Features
-
-### 🚀 Turbo Mode (Ctrl + Click)
-The signature feature of Briskli. Instantly send any prompt from your vault to your favorite AI assistant.
-*   **Multi-Target Support**: Configure Briskli to send prompts to **Cursor**, **GitHub Copilot**, **Sourcegraph Cody**, or the **Active Editor**.
-*   **Smart Injection**: Automatically detects focused chat inputs to paste your prompt exactly where you need it.
-
-### ✨ AI-Powered Prompt Generator
-Need a specific prompt but don't want to write it from scratch?
-*   **Persona-Driven**: Define Roles (e.g., "Senior Architect", "Security Engineer").
-*   **Intent-Based**: Generate prompts tailored for Debugging, Refactoring, Architecture, or Documentation.
-*   **Difficulty Scaling**: Adjust the complexity from Beginner to Master.
-
-### 🗃️ Intelligent Vault Management
-*   **Tabbed Organization**: Group your prompts into custom categories.
-*   **Predictive Suggestions**: Briskli analyzes your active file, language, and recent syntax errors to suggest the most relevant prompts.
-*   **Selection Support**: Highlight code and use context menu commands (`Optimize`, `Secure`, `Docs`) to generate tailored suggestions.
-*   **Multi-Select Mode**: Mass-delete, export, or move prompts between sections with the `☑️ SELECT` tool.
-
-### 🎨 Premium Aesthetics
-*   **Modern Design**: A dark-mode optimized, glassmorphic UI that feels native to VS Code.
-*   **Compact Mode**: Collapsible settings panels and dense prompt cards ensure your workspace stays clean.
-*   **Micro-Animations**: Smooth transitions and hover effects for a responsive user experience.
+**Briskli** is a state-of-the-art prompt management system built directly into VS Code. It bridges the gap between your best prompts and your AI assistants, offering a "one-click" workflow that feels like magic.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Why Briskli?
 
-1.  **Open Briskli**: Click the ⚡ icon in the Activity Bar.
-2.  **Add a Prompt**: Use the `➕` button to create a new category or the `✨ GENERATE` button to let AI build one for you.
-3.  **Deploy**: 
-    *   **Single Click**: Copy to clipboard.
-    *   **Ctrl/Cmd + Click**: Trigger **Turbo Mode** (sends directly to chat).
+In the age of Agentic Coding, your speed is limited by your ability to communicate with AI. Briskli eliminates the friction of copying, pasting, and modifying boilerplate prompts.
 
----
-
-## 🔧 Configuration
-
-Access the ⚙️ **SETTINGS** panel to customize:
-*   **Tone & Size**: Set global response attributes (Professional, Concise, Socratic, etc.).
-*   **Turbo Target**: Choose where your prompts go by default (Cursor is the default favorite).
-*   **Modifiers**: Toggle Language, Stack, and Style variables that auto-inject into your prompts via `{{placeholder}}` syntax.
+- **Stop Searching**: Keep your best "debug", "refactor", and "architecture" prompts in one smart sidebar.
+- **Stop Repeating**: Use variable injection to auto-fill language, framework, and context.
+- **Go Turbo**: Send prompts directly to **Cursor**, **Copilot**, or **Cody** without leaving your editor.
 
 ---
 
-## 📜 Documentation
+## 🔥 Key Features
 
-For more detailed technical documentation, please refer to:
-*   [Advanced Usage Guide](./docs/USAGE.md)
-*   [Smart Injection Setup](./docs/SMART_INJECTION.md)
+### ⚡ Turbo Mode (The "Alpha" Workflow)
+Don't just copy prompts—inject them. 
+*   **Ctrl/Cmd + Click** any card to trigger Turbo Mode.
+*   Supports **Cursor**, **GitHub Copilot**, **Sourcegraph Cody**, and direct **Editor** insertion.
+*   **Smart Injection** detection ensures your prompt lands in the right active chat.
+
+### ✨ Persona-Driven AI Generator
+Need a specific prompt? Use the built-in AI assistant to build one for you.
+*   **Role Setup**: Choose from Senior Architect, DevOps Specialist, Security Guru, and more.
+*   **Intent Targeting**: Tailor logic for testing, documentation, or security audits.
+*   **Difficulty Tiers**: Switch between Beginner and Master modes.
+
+### 🔮 Predictive Suggestion Engine
+The **PREDICTED** zone at the top of your sidebar actively watches your workspace:
+*   Identifies your active **Programming Language**.
+*   Detects **Syntax Errors** and automatically promotes "Fix" prompts.
+*   Prioritizes your **Frequent Habits** based on time of day and project context.
+
+### ☑️ Multi-Select & Vault Ops
+*   **Bulk Management**: Enter select mode to delete, move, or export groups of prompts.
+*   **Tabbed Organization**: Infinite category support to keep your playbooks tidy.
+*   **Portable**: Export/Import your entire vault as JSON to sync across machines.
 
 ---
 
-## ⚖️ License
+## 🛠️ Configuration & Pro Tips
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Access the ⚙️ **SETTINGS** panel to unlock the full power:
+*   **Tone Control**: Switch between Professional, Casual, or Socratic (teaching) modes.
+*   **Size Constraints**: Force AI responses to be Concise, Detailed, or Bullet-pointed.
+*   **Modifiers**: Toggle specific variables like `{{stack}}` or `{{focus}}` to dynamically change thousands of prompts at once.
+
+> **Pro Tip**: Use the `☑️ SELECT` button to quickly export specific prompt categories for teammates!
+
+---
+
+## 🚀 Getting Started in 30 Seconds
+
+1.  **Open**: Click the ⚡ icon in the VS Code Activity Bar.
+2.  **Activate**: Highlight some code in your editor.
+3.  **Deploy**: Ctrl+Click "Optimize Selected" and watch Briskli go to work.
+
+---
+
+## 📜 Documentation & Contributing
+
+*   [Detailed Usage Guide](./docs/USAGE.md)
+*   [GitHub Repository](https://github.com/Pastarafian/Briskli)
 
 ---
 
 <p align="center">
-Built with ❤️ for the next generation of engineers.
+  <b>Built for engineers who code at the speed of thought.</b>
 </p>
