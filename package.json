@@ -3,6 +3,15 @@
   "displayName": "Briskli",
   "description": "Premium Agentic Prompt Vault for Antigravity",
   "version": "0.1.0",
+  "publisher": "Pastarafian",
+  "icon": "icon.png",
+  "keywords": [
+    "prompt",
+    "ai",
+    "cursor",
+    "copilot",
+    "snippets"
+  ],
   "engines": {
     "vscode": "^1.90.0"
   },

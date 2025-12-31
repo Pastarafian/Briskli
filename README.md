@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icon.png" width="128" alt="Briskli Logo">
+</p>
+
 # Briskli ✨
 
 **Briskli** is a premium, high-performance VS Code extension designed to supercharge your AI-assisted development workflow. It provides an agentic prompt vault with "Smart Injection" capabilities, letting you manage and deploy complex prompts to Cursor, Copilot, Cody, and more—at lightning speed.
