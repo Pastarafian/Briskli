@@ -2,7 +2,7 @@
   "name": "briskli",
   "displayName": "Briskli",
   "description": "A simplified prompt manager to boost your coding productivity.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "Pastarafian",
   "license": "MIT",
   "icon": "icon.png",
