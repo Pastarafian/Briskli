@@ -12,6 +12,11 @@
   "activationEvents": [
     "onView:briskli.views.main"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakej/Briskli.git"
+  },
+  "homepage": "https://github.com/fakej/Briskli#readme",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
