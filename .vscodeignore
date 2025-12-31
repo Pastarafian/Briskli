@@ -1,0 +1,9 @@
+.vscode/**
+.github/**
+.gitignore
+tsconfig.json
+**/*.ts
+node_modules/**
+src/extension.ts
+!src/prompts.json
+!out/**
