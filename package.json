@@ -4,6 +4,7 @@
   "description": "Premium Agentic Prompt Vault for Antigravity",
   "version": "0.1.0",
   "publisher": "Pastarafian",
+  "license": "MIT",
   "icon": "icon.png",
   "keywords": [
     "prompt",
