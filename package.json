@@ -1,0 +1,103 @@
+{
+  "name": "briskli",
+  "displayName": "Briskli",
+  "description": "Premium Agentic Prompt Vault for Antigravity",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:briskli.views.main"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "briskli.genOptimize",
+        "title": "Optimize Selection",
+        "icon": "$(zap)"
+      },
+      {
+        "command": "briskli.genSecure",
+        "title": "Secure Selection",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "briskli.genDocs",
+        "title": "Document Selection",
+        "icon": "$(book)"
+      },
+      {
+        "command": "briskli.generatePrompts",
+        "title": "Briskli: Consult AI for Prompts",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "briskli.contextSubmenu",
+        "label": "Briskli"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "briskli.contextSubmenu",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        }
+      ],
+      "briskli.contextSubmenu": [
+        {
+          "command": "briskli.genOptimize",
+          "group": "1_gen"
+        },
+        {
+          "command": "briskli.genSecure",
+          "group": "1_gen"
+        },
+        {
+          "command": "briskli.genDocs",
+          "group": "1_gen"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "briskli-sidebar",
+          "title": "Briskli",
+          "icon": "$(zap)"
+        }
+      ]
+    },
+    "views": {
+      "briskli-sidebar": [
+        {
+          "type": "webview",
+          "id": "briskli.views.main",
+          "name": "Briskli"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "20.x",
+    "typescript": "^5.4.5",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0"
+  }
+}

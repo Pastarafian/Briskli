@@ -1,0 +1,2135 @@
+{
+    "categories": [
+        {
+            "id": "fixing",
+            "name": "Fixing",
+            "icon": "🐛",
+            "prompts": [
+                {
+                    "id": "fix_bug",
+                    "title": "Fix Selected Bug",
+                    "prompt": "Fix the bug in the selected {{language}} code. Explain the root cause with {{focus}} in mind.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "explain_fail",
+                    "title": "Explain Failure",
+                    "prompt": "Explain why this {{language}} code is failing or throwing an error. Consider {{framework}} best practices.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_lint",
+                    "title": "Fix Linter Errors",
+                    "prompt": "Fix the linter errors in this {{language}} file following {{framework}} conventions.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_null",
+                    "title": "Handle Nulls",
+                    "prompt": "Handle all potential null or undefined reference errors in this {{language}} block using {{framework}} patterns.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "add_error_handling",
+                    "title": "Add Error Handling",
+                    "prompt": "Add robust error handling to this {{language}} block. Prioritize {{focus}}.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_loop",
+                    "title": "Fix Infinite Loop",
+                    "prompt": "Identify and fix the logic causing an infinite loop in this {{language}} code.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_type",
+                    "title": "Fix Type Mismatch",
+                    "prompt": "Resolve the type mismatch error in this {{language}} function using proper typing.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_race",
+                    "title": "Fix Race Condition",
+                    "prompt": "Identify and fix the race condition in this {{language}} async block. Focus on {{focus}}.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_memory_leak",
+                    "title": "Fix Memory Leak",
+                    "prompt": "Identify and fix the memory leak in this {{language}} {{framework}} component.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_security",
+                    "title": "Fix Security Vulnerability",
+                    "prompt": "Identify and patch potential security vulnerabilities in this {{language}} code. Focus on {{focus}}.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_overflow",
+                    "title": "Fix Integer Overflow",
+                    "prompt": "Check and fix possible integer overflow issues in this {{language}} logic.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_io",
+                    "title": "Fix I/O Error",
+                    "prompt": "Fix the file or network I/O error occurring in this {{language}} routine.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_css",
+                    "title": "Fix CSS Z-Index",
+                    "prompt": "Resolve the z-index/stacking context issues in this CSS/{{framework}} code.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_sql_inj",
+                    "title": "Fix SQL Injection",
+                    "prompt": "Refactor this {{language}} database query to prevent SQL injection using parameterized queries.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_promise_rej",
+                    "title": "Fix Promise Rejection",
+                    "prompt": "Add proper catch blocks to handle unhandled promise rejections in this {{language}} code.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_timeout",
+                    "title": "Fix API Timeout",
+                    "prompt": "Identify why this API call in {{language}} is timing out and implement a fix or retry logic.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_deps",
+                    "title": "Fix Dep Conflicts",
+                    "prompt": "Analyze and resolve the dependency version conflicts in this {{language}} project.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_regex",
+                    "title": "Fix Regex Backtrack",
+                    "prompt": "Optimize this regex in {{language}} to avoid catastrophic backtracking and performance issues.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_perms",
+                    "title": "Fix File Permissions",
+                    "prompt": "Resolve the 'Permission Denied' errors in this {{language}} file manipulation logic.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_env",
+                    "title": "Fix Env Loading",
+                    "prompt": "Fix the issue preventing environment variables from loading correctly in this {{language}} app.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_port",
+                    "title": "Fix Port Busy",
+                    "prompt": "Implement logic to handle 'Port already in use' errors when starting this {{language}} server.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_git",
+                    "title": "Fix Merge Conflict",
+                    "prompt": "Propose a resolution for the merge highlights in this {{language}} file.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_cache",
+                    "title": "Fix Cache Inval",
+                    "prompt": "Fix the cache invalidation bug in this {{language}} {{framework}} service.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_state_sync",
+                    "title": "Fix State Sync",
+                    "prompt": "Fix the state synchronization issue between the frontend and backend in this {{framework}} logic.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fix_concurrent",
+                    "title": "Fix Concurrent Mod",
+                    "prompt": "Resolve the concurrent modification error in this {{language}} collection iteration.",
+                    "category": "fixing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "refactor",
+            "name": "Refactor",
+            "icon": "🧹",
+            "prompts": [
+                {
+                    "id": "refactor_readable",
+                    "title": "Make Readable",
+                    "prompt": "Refactor this {{language}} function to be more readable and maintainable. Use {{framework}} best practices.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "extract_helper",
+                    "title": "Extract Helper",
+                    "prompt": "Extract the selected {{language}} logic into a separate helper function following {{framework}} patterns.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "optimize_perf",
+                    "title": "Optimize Performance",
+                    "prompt": "Optimize this {{language}} code for better runtime performance. Prioritize {{focus}}.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "modernize_syntax",
+                    "title": "Modernize Syntax",
+                    "prompt": "Convert this {{language}} code to use modern syntax features and {{framework}} conventions.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "simplify_conditions",
+                    "title": "Simplify Logic",
+                    "prompt": "Simplify the complex conditional logic in this {{language}} block. Focus on {{focus}}.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "to_functional",
+                    "title": "To Functional",
+                    "prompt": "Convert this {{language}} class component to a functional component using {{framework}} hooks.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "remove_dupes",
+                    "title": "Remove Duplicates",
+                    "prompt": "Remove duplicate code and logic from this {{language}} module. Apply DRY principles.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "flatten_nest",
+                    "title": "Flatten Nesting",
+                    "prompt": "Flatten this deeply nested {{language}} code structure using guard clauses and early returns.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "to_async_await",
+                    "title": "To Async/Await",
+                    "prompt": "Convert this {{language}} promise chain to clean async/await syntax. Consider {{focus}}.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "apply_solid",
+                    "title": "Convert to SOLID",
+                    "prompt": "Refactor this {{language}} module to better adhere to SOLID principles. Focus on Single Responsibility.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "apply_strategy",
+                    "title": "Apply Strategy Path",
+                    "prompt": "Refactor this conditional logic in {{language}} using the Strategy pattern for better extensibility.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "apply_factory",
+                    "title": "Apply Factory Pattern",
+                    "prompt": "Implement a Factory pattern in {{language}} to handle the creation of these objects.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "apply_singleton",
+                    "title": "Apply Singleton",
+                    "prompt": "Refactor this {{language}} service to use the Singleton pattern appropriately.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "comp_over_inherit",
+                    "title": "Comp Over Inherit",
+                    "prompt": "Refactor this {{language}} class hierarchy to use composition over inheritance.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "simplify_switch",
+                    "title": "Switch to Map",
+                    "prompt": "Refactor this large {{language}} switch statement into a lookup map or object literal.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ext_custom_hook",
+                    "title": "Extract Custom Hook",
+                    "prompt": "Extract the complex state logic from this {{framework}} component into a custom hook.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "opt_sql",
+                    "title": "Optimize SQL Query",
+                    "prompt": "Optimize this SQL query for better execution plans and lower latency. Focus on {{focus}}.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "to_immutable",
+                    "title": "To Immutable",
+                    "prompt": "Refactor this {{language}} logic to use immutable data patterns and avoid side effects.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "inline_vars",
+                    "title": "Inline Variables",
+                    "prompt": "Inline redundant or temporary variables in this {{language}} block for cleaner code.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "move_func",
+                    "title": "Move to Module",
+                    "prompt": "Move this {{language}} function to a more appropriate module for better organization.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "rename_symbols",
+                    "title": "Rename for Clarity",
+                    "prompt": "Rename the variables and functions in this {{language}} file to be more descriptive and clear.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "decomp_comp",
+                    "title": "Decompose Component",
+                    "prompt": "Split this large {{framework}} component into smaller, more manageable sub-components.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cent_state",
+                    "title": "Centralize State",
+                    "prompt": "Move local state in this {{framework}} component to a more centralized state management solution.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "apply_di",
+                    "title": "Apply Dependency Inj",
+                    "prompt": "Refactor this {{language}} class to use Dependency Injection for its collaborators.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "factor_plat",
+                    "title": "Factor Out Plat Logic",
+                    "prompt": "Extract platform-specific logic from this {{language}} module into an abstraction layer.",
+                    "category": "refactor",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "testing",
+            "name": "Testing",
+            "icon": "🧪",
+            "prompts": [
+                {
+                    "id": "gen_unit_test",
+                    "title": "Gen Unit Tests",
+                    "prompt": "Generate comprehensive unit tests for this {{language}} function using {{framework}} testing patterns.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_edge_cases",
+                    "title": "Test Edge Cases",
+                    "prompt": "Write {{language}} test cases specifically for edge cases in this logic. Use {{framework}} testing utilities.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "create_mock",
+                    "title": "Create Mock",
+                    "prompt": "Create a mock object for this {{language}} interface using {{framework}} mocking tools.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "integration_test",
+                    "title": "Integration Test",
+                    "prompt": "Create an integration test for this {{language}} {{framework}} workflow.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_errors",
+                    "title": "Test Error Handlers",
+                    "prompt": "Write {{language}} tests to verify the error handling paths. Focus on {{focus}}.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "e2e_test",
+                    "title": "E2E Test",
+                    "prompt": "Create an end-to-end test script for this {{framework}} user flow in {{language}}.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mock_axios",
+                    "title": "Mock API Calls",
+                    "prompt": "Set up mocks for external API calls in this {{language}} test suite using {{framework}} tools.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mock_socket",
+                    "title": "Mock Sockets",
+                    "prompt": "Write {{language}} tests that mock WebSocket events and responses for this module.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_resp",
+                    "title": "Test UI Resp",
+                    "prompt": "Generate tests to verify the responsiveness of this {{framework}} UI at different viewport sizes.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_bench",
+                    "title": "Perf Benchmark",
+                    "prompt": "Create a performance benchmark test for this {{language}} function using {{framework}} benchmarking tools.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "load_k6",
+                    "title": "Load Test (K6)",
+                    "prompt": "Generate a K6 load testing script for this {{language}} API endpoint.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mut_test",
+                    "title": "Mutation Test",
+                    "prompt": "Set up a mutation testing configuration for this {{language}} project to identify weak tests.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_a11y",
+                    "title": "Test Accessibility",
+                    "prompt": "Write tests to verify WCAG compliance and accessibility for this {{framework}} component.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "snapshot_test",
+                    "title": "Snapshot Test",
+                    "prompt": "Create a snapshot test for this {{framework}} UI component in {{language}}.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_i18n",
+                    "title": "Test i18n",
+                    "prompt": "Generate tests to ensure all i18n strings are correctly loaded and displayed in this {{framework}} app.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mock_ls",
+                    "title": "Mock Storage",
+                    "prompt": "Write tests that mock LocalStorage and Cookie operations in this {{language}} module.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_upload",
+                    "title": "Test File Upload",
+                    "prompt": "Create a test case for the file upload logic in this {{language}} {{framework}} service.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mock_db",
+                    "title": "Mock DB",
+                    "prompt": "Set up a mock database layer for these {{language}} tests using {{framework}} specific utilities.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "fuzz_test",
+                    "title": "Fuzz Testing",
+                    "prompt": "Implement a basic fuzz testing routine for this {{language}} input parser.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_mem_leak",
+                    "title": "Test for Leak",
+                    "prompt": "Write specialized tests to detect memory leaks in this {{language}} long-running process.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_worker",
+                    "title": "Test Web Workers",
+                    "prompt": "Create a test suite for the Web Worker logic in this {{language}} file.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_sw",
+                    "title": "Test Service Worker",
+                    "prompt": "Write tests to verify the caching and offline behavior of this Service Worker.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mock_ws_srv",
+                    "title": "Mock WS Server",
+                    "prompt": "Set up a mock WebSocket server for testing this {{language}} client logic.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_middle",
+                    "title": "Test Middleware",
+                    "prompt": "Write unit tests for this {{language}} {{framework}} middleware function.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_auth_g",
+                    "title": "Test Auth Guard",
+                    "prompt": "Create unit tests to verify the authentication and authorization guards in this module.",
+                    "category": "testing",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "docs",
+            "name": "Docs",
+            "icon": "📖",
+            "prompts": [
+                {
+                    "id": "add_docstrings",
+                    "title": "Add Docstrings",
+                    "prompt": "Add comprehensive docstrings to all {{language}} methods in this file following {{framework}} conventions.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "explain_code",
+                    "title": "Explain Selection",
+                    "prompt": "Explain exactly what this {{language}} code does in plain English. Consider {{framework}} context.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "add_why_comments",
+                    "title": "Add 'Why' Comments",
+                    "prompt": "Add comments explaining the 'why' behind this complex {{language}} logic. Focus on {{focus}}.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_readme",
+                    "title": "Gen README",
+                    "prompt": "Generate a README entry for this {{language}} {{framework}} module.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_api_docs",
+                    "title": "API Docs",
+                    "prompt": "Generate API documentation for this {{language}} service/endpoint using {{framework}} standards.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "usage_example",
+                    "title": "Usage Example",
+                    "prompt": "Generate a usage example for this {{language}} {{framework}} function.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_jsdoc",
+                    "title": "Generate JSDoc",
+                    "prompt": "Generate JSDoc comments for all exported functions and classes in this {{language}} file.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_openapi",
+                    "title": "Gen OpenAPI Spec",
+                    "prompt": "Generate an OpenAPI/Swagger specification for these {{language}} API routes.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "write_tutorial",
+                    "title": "Write Tutorial",
+                    "prompt": "Write a step-by-step tutorial explaining how to use this {{language}} {{framework}} module.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_mermaid",
+                    "title": "Gen Mermaid Diag",
+                    "prompt": "Generate a Mermaid diagram (flowchart or sequence) representing the logic in this {{language}} code.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sum_changes",
+                    "title": "Summarize Changes",
+                    "prompt": "Generate clear release notes and sum up the changes made in this {{language}} file.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "exp_complexity",
+                    "title": "Explain Complexity",
+                    "prompt": "Analyze and explain the Big O time and space complexity of this {{language}} algorithm.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "comp_alt",
+                    "title": "Compare Alt Appr",
+                    "prompt": "Provide a comparison between this {{language}} implementation and a common alternative approach.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "trouble_guide",
+                    "title": "Trouble Guide",
+                    "prompt": "Write a troubleshooting guide for common issues related to this {{language}} {{framework}} feature.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_audit",
+                    "title": "Security Audit Rep",
+                    "prompt": "Write a preliminary security audit report for this {{language}} code block.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "readme_deploy",
+                    "title": "README Deployment",
+                    "prompt": "Generate a detailed deployment section for the README file of this {{language}} project.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "readme_cfg",
+                    "title": "README Config",
+                    "prompt": "Write a comprehensive configuration guide for the environment variables in this {{language}} app.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "code_std",
+                    "title": "Code Standards",
+                    "prompt": "Generate a coding standards guide based on the patterns used in this {{language}} repository.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "mig_guide",
+                    "title": "Migration Guide",
+                    "prompt": "Create a migration guide for updating from the legacy version to this new {{language}} implementation.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "webhook_docs",
+                    "title": "Webhook Docs",
+                    "prompt": "Generate documentation for the webhook payloads and responses handled by this {{language}} service.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "doc_env_vars",
+                    "title": "Document Env Vars",
+                    "prompt": "Generate a table documenting all environment variables used in this {{language}} project.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "test_plan",
+                    "title": "Example Test Plan",
+                    "prompt": "Write an example test plan and strategy for this new {{framework}} feature.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_changelog",
+                    "title": "Changelog Entry",
+                    "prompt": "Draft a changelog entry for this set of changes, following Keep a Changelog standards.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "contrib_guide",
+                    "title": "Contrib Guide",
+                    "prompt": "Write a clear contributing guideline section for developers working on this module.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "lic_header",
+                    "title": "License Header",
+                    "prompt": "Generate a standard license header comment for this file based on the project's license.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "env_setup_guide",
+                    "title": "Env Setup Guide",
+                    "prompt": "Create a step-by-step local environment setup guide for this application.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "data_flow_desc",
+                    "title": "Data Flow Desc",
+                    "prompt": "Describe the data flow through this component in detail, from input to output.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "faq_write",
+                    "title": "Write FAQ",
+                    "prompt": "Generate a list of Frequently Asked Questions for this {{language}} plugin/extension.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "doc_schema",
+                    "title": "Document Schema",
+                    "prompt": "Generate documentation for the database schema/models defined in this {{language}} file.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "doc_3p_api",
+                    "title": "Doc 3rd Party API",
+                    "prompt": "Write documentation for the external third-party APIs integrated into this {{language}} module.",
+                    "category": "docs",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "gen",
+            "name": "Code Gen",
+            "icon": "🚀",
+            "prompts": [
+                {
+                    "id": "implement_missing",
+                    "title": "Implement Missing",
+                    "prompt": "Implement the missing methods for this {{language}} interface using {{framework}} patterns.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_interface",
+                    "title": "Gen Interface",
+                    "prompt": "Generate a {{language}} interface from this JSON data for {{framework}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "scaffold_file",
+                    "title": "Scaffold File",
+                    "prompt": "Scaffold a boilerplate {{language}} file structure for {{framework}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_component",
+                    "title": "Gen Component",
+                    "prompt": "Generate a {{framework}} component in {{language}} with these specific props. Focus on {{focus}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_hook",
+                    "title": "Gen Hook",
+                    "prompt": "Create a custom {{framework}} hook in {{language}} for this state logic.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "factory_func",
+                    "title": "Factory Function",
+                    "prompt": "Create a {{language}} factory function for {{framework}} to instantiate this object.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_crud",
+                    "title": "Gen CRUD Routes",
+                    "prompt": "Generate full CRUD API routes for this entity in {{language}} using {{framework}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_mig",
+                    "title": "Create Migration",
+                    "prompt": "Generate a database migration file for this {{language}} model change.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_form",
+                    "title": "Gen Form Comp",
+                    "prompt": "Create a responsive form component in {{framework}} with validation for this {{language}} model.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_table",
+                    "title": "Gen Table Pag",
+                    "prompt": "Generate a data table with pagination and sorting in {{framework}} for this {{language}} dataset.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_auth_mid",
+                    "title": "Gen Auth Middle",
+                    "prompt": "Create a JWT-based authentication middleware for this {{language}} {{framework}} server.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_docker",
+                    "title": "Gen Dockerfile",
+                    "prompt": "Generate a production-ready Dockerfile for this {{language}} {{framework}} application.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_gha",
+                    "title": "Gen GH Action",
+                    "prompt": "Create a GitHub Action workflow for CI/CD in this {{language}} project.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_cli",
+                    "title": "Gen CLI Scaffold",
+                    "prompt": "Scaffold a modern CLI tool in {{language}} using popular argument parsing libraries.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_gql_res",
+                    "title": "Gen GraphQL Res",
+                    "prompt": "Generate GraphQL resolvers for this {{language}} schema in {{framework}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_redux",
+                    "title": "Gen Redux Slice",
+                    "prompt": "Create a Redux Toolkit slice with async thunks for this {{language}} data model.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_zod",
+                    "title": "Gen Zod Schema",
+                    "prompt": "Generate a Zod validation schema representing this {{language}} interface.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_md_html",
+                    "title": "Gen MD to HTML",
+                    "prompt": "Write a {{language}} utility to convert Markdown content into sanitized HTML.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_grid",
+                    "title": "Gen CSS Grid",
+                    "prompt": "Generate a complex CSS Grid layout for this {{framework}} dashboard.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_scrape",
+                    "title": "Gen Web Scraper",
+                    "prompt": "Scaffold a web scraper skeleton in {{language}} for this target website.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_csv",
+                    "title": "Gen CSV Parser",
+                    "prompt": "Create a high-performance CSV parser in {{language}} for this data structure.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_img_helper",
+                    "title": "Gen Image Helper",
+                    "prompt": "Create an image processing helper in {{language}} to handle resizing and optimization.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_pdf",
+                    "title": "Gen PDF Logic",
+                    "prompt": "Implement the logic to generate branded PDF reports from this data in {{language}}.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_stripe",
+                    "title": "Gen Stripe Integ",
+                    "prompt": "Scaffold a Stripe checkout integration for this {{language}} {{framework}} app.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "gen_fb_func",
+                    "title": "Gen FB Function",
+                    "prompt": "Generate a Firebase Cloud Function in {{language}} to handle this background trigger.",
+                    "category": "gen",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "github",
+            "name": "GitHub",
+            "prompts": [
+                {
+                    "id": "git_commit",
+                    "title": "Commit Msg",
+                    "prompt": "Write a concise commit message for these changes.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_pr",
+                    "title": "Draft PR",
+                    "prompt": "Create a PR description summarizing these changes.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_rebase",
+                    "title": "Explain Rebase",
+                    "prompt": "Explain how to rebase the current branch onto main.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_diff",
+                    "title": "Analyze Diff",
+                    "prompt": "Analyze the git diff for potential issues.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_ignore",
+                    "title": "Gen .gitignore",
+                    "prompt": "Generate a comprehensive .gitignore for this project.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_squash",
+                    "title": "Squash Commits",
+                    "prompt": "Guide me through squashing the last N commits.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_reset",
+                    "title": "Reset Guide",
+                    "prompt": "Explain when to use git reset --soft vs --hard.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_cherry",
+                    "title": "Cherry Pick",
+                    "prompt": "Help me cherry-pick a specific commit.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_stash",
+                    "title": "Stash Strategy",
+                    "prompt": "Explain how to stash these changes and pop later.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_branch",
+                    "title": "Branch Naming",
+                    "prompt": "Suggest semantic branch names for this feature.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_conflict",
+                    "title": "Resolve Conflict",
+                    "prompt": "Guide me through resolving these merge conflicts.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_release",
+                    "title": "Release Notes",
+                    "prompt": "Draft release notes for recent changes.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_flow",
+                    "title": "Git Flow",
+                    "prompt": "Explain the best branching strategy for this repo.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_undo",
+                    "title": "Undo last",
+                    "prompt": "How do I safely undo the last commit?",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_blame",
+                    "title": "Blame Analysis",
+                    "prompt": "Analyze git blame for this file.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_scan_issues",
+                    "title": "Scan Issues",
+                    "prompt": "Read repo issues and identify bugs.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_analyze_commits",
+                    "title": "Analyze Hist",
+                    "prompt": "Analyze recent commits for regressions.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_sum_bugs",
+                    "title": "Sum Bugs",
+                    "prompt": "Summarize top open bug reports.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_issue_code",
+                    "title": "Match Issue",
+                    "prompt": "Find code responsible for bug in issue text.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_hooks",
+                    "title": "Setup Hooks",
+                    "prompt": "Help me setup git hooks (pre-commit).",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_bisect",
+                    "title": "Bisect Guide",
+                    "prompt": "Walk me through using git bisect.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_submodule",
+                    "title": "Submodule Mgmt",
+                    "prompt": "Explain how to add/update submodules.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_log_viz",
+                    "title": "Log Viz",
+                    "prompt": "Show me a visual git log graph in CLI.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_patch",
+                    "title": "Gen Patch",
+                    "prompt": "How do I create and apply a patch file?",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "git_prune",
+                    "title": "Remote Prune",
+                    "prompt": "Clean up stale remote branches.",
+                    "category": "github",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "creativity",
+            "name": "Creativity",
+            "prompts": [
+                {
+                    "id": "cr_feat_ideas",
+                    "title": "Feature Ideas",
+                    "prompt": "Gen 10 innovative feature ideas.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_upgrades",
+                    "title": "Upgrades",
+                    "prompt": "Propose prioritized upgrades for this code.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_next_version",
+                    "title": "Next Version",
+                    "prompt": "What should v2.0 of this feature look like?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_user_delight",
+                    "title": "User Delight",
+                    "prompt": "Suggest 5 ways to add user delight.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_innovation",
+                    "title": "Innovation Spark",
+                    "prompt": "What cutting-edge tech could we integrate?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_ux_patterns",
+                    "title": "Modern UX",
+                    "prompt": "Propose modern UX patterns for this UI.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_gamify",
+                    "title": "Gamification",
+                    "prompt": "Suggest gamification elements.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_easter",
+                    "title": "Easter Eggs",
+                    "prompt": "Design fun easter eggs for users.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_automation",
+                    "title": "Smart Auto",
+                    "prompt": "What processes could be automated?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_ai_enhance",
+                    "title": "AI Enhancement",
+                    "prompt": "How could AI make this smarter?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_personalize",
+                    "title": "Personalize",
+                    "prompt": "Suggest personalization ideas.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_a11y_plus",
+                    "title": "A11y+",
+                    "prompt": "What a11y improvements add value?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_mobile",
+                    "title": "Mobile Rethink",
+                    "prompt": "Reimagine this for mobile-first.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_voice",
+                    "title": "Voice UI",
+                    "prompt": "How could this work with voice?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_collab",
+                    "title": "Collaboration",
+                    "prompt": "Suggest real-time collab features.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_offline",
+                    "title": "Offline Mode",
+                    "prompt": "Design an offline-first version.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_integrate",
+                    "title": "Integrations",
+                    "prompt": "What 3rd party integrations add value?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_viz",
+                    "title": "Data Viz",
+                    "prompt": "Propose creative data viz options.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_shortcuts",
+                    "title": "Power User",
+                    "prompt": "Design power user shortcuts.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_onboard",
+                    "title": "Onboarding",
+                    "prompt": "Create an engaging onboarding flow.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_monetize",
+                    "title": "Monetization",
+                    "prompt": "Suggest ethical monetization ideas.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_pivot",
+                    "title": "Pivot Ideas",
+                    "prompt": "How could we pivot this product?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_compete",
+                    "title": "Edge",
+                    "prompt": "How to differentiate from competitors?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_future",
+                    "title": "Future Proof",
+                    "prompt": "What emerging trends should we track?",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "cr_mvp",
+                    "title": "MVP Definition",
+                    "prompt": "Define the MVP for a new feature.",
+                    "category": "creativity",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance",
+            "prompts": [
+                {
+                    "id": "perf_audit",
+                    "title": "Perf Audit",
+                    "prompt": "Conduct a performance audit of this code.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_loops",
+                    "title": "Fix slow loops",
+                    "prompt": "Optimize these loops for speed.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_memory",
+                    "title": "Memory Usage",
+                    "prompt": "Reduce the memory footprint of this logic.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_latency",
+                    "title": "Lower Latency",
+                    "prompt": "Identify bottlenecks causing latency.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_async",
+                    "title": "Parllelize",
+                    "prompt": "Can this be run in parallel for speed?",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_bundle",
+                    "title": "Bundle Size",
+                    "prompt": "How to reduce the bundle size here?",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_dom",
+                    "title": "DOM Ops",
+                    "prompt": "Optimize these slow DOM operations.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_db",
+                    "title": "DB Query Tech",
+                    "prompt": "Optimize this DB query for better perf.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_cache",
+                    "title": "Cache Strategy",
+                    "prompt": "Suggest a better caching strategy here.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_lazy",
+                    "title": "Lazy Load",
+                    "prompt": "Implement lazy loading for these parts.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_assets",
+                    "title": "Asset Opt",
+                    "prompt": "How to optimize asset loading here?",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_network",
+                    "title": "Network Req",
+                    "prompt": "Reduce the number of network requests.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_rendering",
+                    "title": "Zero Jank",
+                    "prompt": "Fix the jank in this UI rendering.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_v8",
+                    "title": "V8 Opt",
+                    "prompt": "Make this V8 friendly (hidden classes).",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_garbage",
+                    "title": "GC pressure",
+                    "prompt": "Reduce garbage collection pressure.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_startup",
+                    "title": "Fast Startup",
+                    "prompt": "Improve the cold start time of this app.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_worker",
+                    "title": "Web Worker",
+                    "prompt": "Move this heavy logic to a worker.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_wasm",
+                    "title": "WASM Bridge",
+                    "prompt": "Could this be moved to WASM for speed?",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_throttle",
+                    "title": "Throttle/Deb",
+                    "prompt": "Add throttling/debouncing to events.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_compression",
+                    "title": "Compression",
+                    "prompt": "Implement better data compression.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_precompute",
+                    "title": "Precompute",
+                    "prompt": "Precompute expensive values.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_bitsets",
+                    "title": "Bitwise Op",
+                    "prompt": "Optimize using bitwise operations.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_indexeddb",
+                    "title": "IndexedDB opt",
+                    "prompt": "Optimize IndexedDB performance.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_react",
+                    "title": "React Render",
+                    "prompt": "Fix unnecessary React re-renders.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "perf_streaming",
+                    "title": "Streaming Data",
+                    "prompt": "Switch to streaming for large datasets.",
+                    "category": "performance",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "prompts": [
+                {
+                    "id": "sec_owasp",
+                    "title": "OWASP Check",
+                    "prompt": "Check this against OWASP top 10.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_xss",
+                    "title": "Fix XSS",
+                    "prompt": "Identify and fix XSS vulnerabilities.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_csrf",
+                    "title": "Fix CSRF",
+                    "prompt": "Add CSRF protection to this form.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_sql",
+                    "title": "Fix SQLi",
+                    "prompt": "Scan for SQL injection risks.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_auth",
+                    "title": "Secure Auth",
+                    "prompt": "Make this auth logic more secure.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_crypto",
+                    "title": "Better Crypto",
+                    "prompt": "Use stronger cryptographic algorithms.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_secrets",
+                    "title": "Zero Secrets",
+                    "prompt": "Find hardcoded secrets/keys in code.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_headers",
+                    "title": "Secure Head",
+                    "prompt": "Set secure HTTP headers (CSP, etc).",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_audit",
+                    "title": "Dep Audit",
+                    "prompt": "Audit dependencies for vulnerabilities.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_input",
+                    "title": "Input San",
+                    "prompt": "Sanitize all user inputs properly.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_sessions",
+                    "title": "Sess Sec",
+                    "prompt": "Secure session management logic.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_jwt",
+                    "title": "JWT Audit",
+                    "prompt": "Verify JWT security (signing, exp).",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_cors",
+                    "title": "CORS Policy",
+                    "prompt": "Set a restrictive CORS policy.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_files",
+                    "title": "File Security",
+                    "prompt": "Prevent local file inclusion/LFI.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_logging",
+                    "title": "Secure Log",
+                    "prompt": "Ensure logs don't leak PII.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_ratelimit",
+                    "title": "Rate Limit",
+                    "prompt": "Add rate limiting to this endpoint.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_brute",
+                    "title": "Anti-Brute",
+                    "prompt": "Add brute force protection.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_api",
+                    "title": "API Key Mgmt",
+                    "prompt": "Secure the API key handling logic.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_error",
+                    "title": "Error Leak",
+                    "prompt": "Ensure errors don't leak system info.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_oauth",
+                    "title": "OAuth Sec",
+                    "prompt": "Security review of OAuth flow.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_vun_scan",
+                    "title": "Vuln Scan",
+                    "prompt": "Scan this file for common vulns.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_sandbox",
+                    "title": "Code Sandbox",
+                    "prompt": "Sandbox this untrusted code execution.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_headers_csp",
+                    "title": "Tight CSP",
+                    "prompt": "Generate a tight CSP header.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_audit_sql",
+                    "title": "NoSQL Audit",
+                    "prompt": "Fix NoSQL injection vulnerabilities.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "sec_tls",
+                    "title": "TLS Enforce",
+                    "prompt": "Ensure only TLS 1.3+ is used.",
+                    "category": "security",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        },
+        {
+            "id": "ui_ux",
+            "name": "UI/UX",
+            "prompts": [
+                {
+                    "id": "ux_consistency",
+                    "title": "Consistency",
+                    "prompt": "Improve UI consistency across elements.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_feedback",
+                    "title": "Feedback",
+                    "prompt": "Add visual feedback for user actions.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_accessibility",
+                    "title": "A11y Review",
+                    "prompt": "Review matching WCAG standards.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_responsive",
+                    "title": "Be Responsive",
+                    "prompt": "Fix responsive breakage at 320px.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_delight",
+                    "title": "Add Spark",
+                    "prompt": "Suggest micro-interactions for delight.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_contrast",
+                    "title": "Fix Contrast",
+                    "prompt": "Identify and fix low contrast text.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_form_ux",
+                    "title": "Better Forms",
+                    "prompt": "Streamline this form for easier completion.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_typography",
+                    "title": "Type Opt",
+                    "prompt": "Improve the typography hierarchy.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_empty_state",
+                    "title": "Empty States",
+                    "prompt": "Design a better empty state for this view.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_loading",
+                    "title": "Skeleton UI",
+                    "prompt": "Implement skeleton loaders for this page.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_err_msgs",
+                    "title": "Human Errors",
+                    "prompt": "Make error messages more helpful.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_dark_mode",
+                    "title": "Dark Mode",
+                    "prompt": "Review dark mode color palette.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_mobile_nav",
+                    "title": "Mobile Nav",
+                    "prompt": "Optimize navigation for thumb reach.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_transitions",
+                    "title": "Transitions",
+                    "prompt": "Add smooth state transitions.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_onboard",
+                    "title": "Onboarding",
+                    "prompt": "Create a tutorial for this complex feature.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_search",
+                    "title": "Search UX",
+                    "prompt": "Improve the search results experience.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_hover",
+                    "title": "Hover States",
+                    "prompt": "Add meaningful hover/active states.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_readability",
+                    "title": "Readability",
+                    "prompt": "Optimize line length and spacing.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_buttons",
+                    "title": "Button Logic",
+                    "prompt": "Differentiate primary vs secondary.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_spacing",
+                    "title": "White Space",
+                    "prompt": "Improve the use of white space.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_hierarchy",
+                    "title": "Hierarchy",
+                    "prompt": "Establish a clearer visual hierarchy.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_navigation",
+                    "title": "IA / Nav",
+                    "prompt": "Improve information architecture.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_modals",
+                    "title": "Better Modals",
+                    "prompt": "Ensure modals are accessible/intuitive.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_tooltips",
+                    "title": "Helpful Tips",
+                    "prompt": "Add tooltips for complex UI controls.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                },
+                {
+                    "id": "ux_friction",
+                    "title": "Zero Friction",
+                    "prompt": "Identify points of user friction/drop-off.",
+                    "category": "ui_ux",
+                    "usageCount": 0,
+                    "lastUsed": 0
+                }
+            ]
+        }
+    ],
+    "playbooks": [
+        {
+            "id": "pb_feature",
+            "title": "New Feature Flow",
+            "prompt": "1. Research architectural impact. 2. Define {{language}} interfaces. 3. Implement core logic in {{framework}}. 4. Add unit tests.",
+            "category": "playbook",
+            "usageCount": 0,
+            "lastUsed": 0
+        },
+        {
+            "id": "pb_bugfix",
+            "title": "Critical Bugfix Flow",
+            "prompt": "1. Reproduce with a failing test. 2. Root cause analysis in {{language}}. 3. Apply fix focus on {{focus}}. 4. Regression testing.",
+            "category": "playbook",
+            "usageCount": 0,
+            "lastUsed": 0
+        },
+        {
+            "id": "pb_refactor",
+            "title": "Module Refactor Flow",
+            "prompt": "1. Review existing {{language}} code. 2. Extract utilities. 3. Simplify logic. 4. Verify with {{framework}} tests.",
+            "category": "playbook",
+            "usageCount": 0,
+            "lastUsed": 0
+        }
+    ]
+}
